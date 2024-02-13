@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcularora</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="fundo">
+        <div id="calc">
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td colspan="3"><button style="width: 153px;" onclick="limpar()">C</button></td>
+                    <td><button onclick="operacao('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><button style="width: 153px;" onclick="limparPrimeiro()">></button></td>
+                    <td><button onclick="operacao('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="operacao('7')">7</button></td>
+                    <td><button onclick="operacao('8')">8</button></td>
+                    <td><button onclick="operacao('9')">9</button></td>
+                    <td><button onclick="operacao('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="operacao('4')">4</button></td>
+                    <td><button onclick="operacao('5')">5</button></td>
+                    <td><button onclick="operacao('6')">6</button></td>
+                    <td><button onclick="operacao('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="operacao('1')">1</button></td>
+                    <td><button onclick="operacao('2')">2</button></td>
+                    <td><button onclick="operacao('3')">3</button></td>
+                    <td rowspan="2"><button style="height: 101px;"  onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button style="width: 102px;"  onclick="operacao('0')">0</button></td>
+                    <td><button onclick="operacao('.')">.</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let p = document.getElementById("resultado")
+        let list = ["/", "*", "+", "-"]
+
+        function limpar(){
+            p.innerHTML = ""
+        }
+
+        function limparPrimeiro(){
+            let x = p.innerHTML
+            p.innerHTML = x.slice(0, x.length-1)
+        }
+
+        function inlist(x){
+            let i = 0
+
+            while (i < 4){
+                if(x == list[i]){
+                    return false
+                }
+                i++
+            }
+            return true
+        }
+
+        function operacao(num){
+            let x = p.innerHTML
+            if (inlist(x.slice(-1)) || inlist(num) ){
+                p.innerHTML += num
+            }
+        }
+        
+
+        function calcular(){
+            let x = p.innerHTML
+            p.innerHTML = eval(x)
+        }
+    </script>
+    
+    
+</body>
+</html>
