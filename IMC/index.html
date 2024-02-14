@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de IMC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-query.css">
+</head>
+<body>
+
+    <section>
+        <div id="imagem">
+            <img src="image.svg" alt="Exercícios">
+        </div>
+        <div id="calc">
+            <h1>Calculadora IMC</h1>
+            <hr>
+            <form action="" method="post">
+                <p>
+                    <label for="peso">Peso em kg</label>
+                    <input type="number" name="peso" id="peso" placeholder="Exemplo: 60" required>
+                    <span>kg</span>
+                </p>
+                <p>
+                    <label for="altura">Altura em metros</label>
+                    <input type="number" name="altura" id="altura" placeholder="Exemplo: 1.65" required>
+                    <span>m</span>
+                </p>
+                <div id="botao"><button onclick="calcular()">Calcular</button></div>
+            </form>
+            <div id="resultados">
+                <hr>
+                <p id="numero" class="out" ></p>
+                <p id="frase" class="out" ></p>
+                <hr>
+                <p><a href="https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index" target="_blank">Mais informações sobre IMC</a></p>
+            </div>
+        </div>
+
+        <div id="foot">
+            <p>Projeto executado por Giovanna Scalfoni e pertencente a <a href="https://www.youtube.com/@larissakich" target="_blank">Larissa Kich</a></p>
+        </div>
+       
+    </section>
+    
+
+    <script>
+        function estilos(){
+            let box_resultados = document.getElementById("resultados")
+            box_resultados.style.display = "block"
+
+            let div_calc = document.getElementById("calc")
+            div_calc.style.height = "450px"
+        }
+
+        function calcular(){
+            let peso = Number(document.getElementById("peso").value)
+            let altura = Number(document.getElementById("altura").value)
+
+            let imc = peso/(altura*altura)
+
+            estilos()
+
+            let numero = document.getElementById("numero")
+            let texto = document.getElementById("frase")
+            let frase
+
+            numero.innerHTML = "Seu IMC é " + imc.toFixed(2)
+            if (imc < 18.5){
+                frase = "Você está abaixo do peso"
+            }
+            else if(imc < 25){
+                frase = "Você está no peso ideal!"
+            }
+            else if(imc < 30){
+                frase = "Você entá em sobrepeso"
+            }
+            else{
+                frase = "Você está na faixa da obesidade"
+            }
+
+            texto.innerHTML = frase
+
+        }
+    </script>
+    
+    
+</body>
+</html>

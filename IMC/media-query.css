@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+@media screen and (min-width: 992px){
+    img{
+        display: inline-block;
+        position: absolute;
+        top: 15%;
+        right: 50%;
+        width: 40vw;
+    }
+
+    div#calc{
+        display: inline-block;
+        
+        position: absolute;
+        top: 45%;
+        left: 70%;
+        
+    }
+
+    
+}
