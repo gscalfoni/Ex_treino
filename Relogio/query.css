@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 768px){
+    div.relogio{
+        height: 300px;
+        width: 700px;
+
+        /*Nesse caso o comentado abaixo n funcionou, mas esse trecho aqui sim*/
+        align-items: center;
+        justify-content: space-around;
+        display: flex; 
+        
+        
+        /* position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+    }
+
+    div.box{
+        margin-left: 20px;
+        margin-right: 20px;
+        
+
+        /*ISSO É PARA CENTRALIZAR AS TAGS SPAN NA DIV BOX E AINDA COLOCAR ELA EM COLUNAS, UMA EMBAIXO DA OUTRA*/
+}
+    
+}

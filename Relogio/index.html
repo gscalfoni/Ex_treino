@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Dinâmico</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+</head>
+<body>
+
+    <div class="relogio">
+
+        <div class="box">
+            <span class="numeros" id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+
+        <div class="box">
+            <span class="numeros" id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+
+        <div class="box">
+            <span class="numeros" id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+
+    </div>
+
+    <div id="foot">
+        <p>Projeto executado por Giovanna Scalfoni e pertencente a <a href="https://www.youtube.com/@larissakich" target="_blank">Larissa Kich</a></p>
+    </div>
+
+
+    <script>
+        let horas = document.getElementById("horas")
+        let min = document.getElementById("minutos")
+        let seg = document.getElementById("segundos")
+
+        /*
+        A função setInterval serve para vc escrever uma função que quer q execute com um intervalo pré definido depois da vírgula (em milissegundos). Caso não coloque nada, vai só executar toda hora
+        */
+         setInterval(function(){
+            let d = new Date()
+
+            horas.innerHTML = d.getHours()
+            min.innerHTML = d.getMinutes()
+            seg.innerHTML = d.getSeconds()
+        }, 250)
+
+        
+    </script>
+
+</body>
+</html>
