@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="corpo">
+
+        <h1>Interaja com a Lâmpada</h1>
+
+        <div>
+            <button id="imagem" onclick="quebrar()"><div id="lampada">
+
+            </div></button>
+        </div>
+
+        <div id="botoes">
+            <form action="" method="get">
+                <button class="clicar" onclick="interruptor_ligar()">Ligar</button>
+                <button class="clicar" onclick="interruptor_desligar()">Desligar</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        let click = 0
+
+        let imagem = document.getElementById("lampada")
+
+        let back = window.getComputedStyle(imagem).backgroundImage
+
+        function interruptor_ligar(){
+            /* 
+            O que eu fiz anteriomente:
+            if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
+            */
+
+            if(!back.includes("imgs/acessa.png") && !back.includes("imgs/quebrada.png")){
+                imagem.style.backgroundImage = "url('imgs/acessa.png')"
+
+            }
+        }
+
+        function interruptor_desligar(){
+            /* 
+            O que eu fiz anteriomente:
+            if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
+            */
+
+            if(!back.includes("imgs/apagada.png") && !back.includes("imgs/quebrada.png")){
+                imagem.style.backgroundImage = "url('imgs/apagada.png')"
+
+            }
+        }
+
+        function clicou(){
+            if (click > 3){
+                imagem.style.backgroundImage = "url(imgs/quebrada.png)"
+            }
+        }
+    </script>
+    
+</body>
+</html>
