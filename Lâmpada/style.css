@@ -18,6 +18,10 @@ body{
 div#corpo{
     background: rgba(255, 255, 255, 0.208);
 
+
+    height: 400px;
+    width: 300px;
+
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.507);
@@ -41,7 +45,7 @@ img{
     padding-bottom: 20px;
 }
 
-button#imagem{
+button#botao-imagem{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -71,13 +75,5 @@ div#botoes{
     align-items: center;
 }
 
-div#lampada{
 
-    background-image: url(imgs/apagada.png);
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 270px;
-
-    padding-bottom: 20px;
-}
 

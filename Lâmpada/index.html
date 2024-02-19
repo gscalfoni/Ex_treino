@@ -14,15 +14,13 @@
         <h1>Interaja com a Lâmpada</h1>
 
         <div>
-            <button id="imagem" onclick="quebrar()"><div id="lampada">
-
-            </div></button>
+            <button id="botao-imagem" ><img id="lampada" src="imgs/apagada.png" alt="image" ></button>
         </div>
 
         <div id="botoes">
             <form action="" method="get">
-                <button class="clicar" onclick="interruptor_ligar()">Ligar</button>
-                <button class="clicar" onclick="interruptor_desligar()">Desligar</button>
+                <button class="clicar" id="botao-ligar">Ligar</button>
+                <button class="clicar" id="botao-desligar">Desligar</button>
             </form>
         </div>
 
@@ -30,41 +28,64 @@
 
     <script>
         let click = 0
-
         let imagem = document.getElementById("lampada")
 
-        let back = window.getComputedStyle(imagem).backgroundImage
+        let bLigar = document.getElementById("botao-ligar")
+        let bDesligar = document.getElementById('botao-desligar')
+        let bLampada = document.getElementById('botao-imagem')
+
+        bLigar.addEventListener("click", interruptor_ligar)
+        bDesligar.addEventListener("click", interruptor_desligar)
+        bLampada.addEventListener("click", quebrar)
+
+        tipo = "apagada"
 
         function interruptor_ligar(){
-            /* 
-            O que eu fiz anteriomente:
-            if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
-            */
 
-            if(!back.includes("imgs/acessa.png") && !back.includes("imgs/quebrada.png")){
-                imagem.style.backgroundImage = "url('imgs/acessa.png')"
-
+            if(tipo === "apagada"){
+                tipo = "acessa"
+                imagem.src = 'imgs/acessa.png'
             }
         }
 
         function interruptor_desligar(){
-            /* 
-            O que eu fiz anteriomente:
-            if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
-            */
-
-            if(!back.includes("imgs/apagada.png") && !back.includes("imgs/quebrada.png")){
-                imagem.style.backgroundImage = "url('imgs/apagada.png')"
-
+            if(tipo === "acessa"){
+                tipo = "apagada"
+                imagem.src = 'imgs/apagada.png'
             }
         }
 
-        function clicou(){
+        function quebrar(){
+            
+            click++
             if (click > 3){
-                imagem.style.backgroundImage = "url(imgs/quebrada.png)"
+                imagem.src = 'imgs/quebrada.png'
+                tipo = 'quebrada'
+                document.getElementById('botoes').style.display = 'none'
             }
         }
+
+
+        /*Eu estou sem palavras...........*/
+        
+        /* 
+        O que eu fiz anteriomente:
+        if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
+
+        O que eu fiz depois: 
+        if(!back.includes("imgs/apagada.png") && !back.includes("imgs/quebrada.png")){
+            imagem.style.backgroundImage = "url('imgs/apagada.png')"
+
+        e depois:
+        if(src === 'imgs/apagada.png'){
+                imagem.src = 'imgs/acessa.png'
+                alert(imagem.src)
+            }
+
+    */
     </script>
+
+    
     
 </body>
 </html>
