@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,85 +7,55 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="b">
 
     <div id="corpo">
-
-        <h1>Interaja com a Lâmpada</h1>
-
-        <div>
-            <button id="botao-imagem" ><img id="lampada" src="imgs/apagada.png" alt="image" ></button>
+        <h1>Interaja com a lâmpada!</h1>
+        <div id="lampada">
+            <img  src='imgs/apagada.png' alt="image" onclick="quebrar()" id="image">
         </div>
 
         <div id="botoes">
-            <form action="" method="get">
-                <button class="clicar" id="botao-ligar">Ligar</button>
-                <button class="clicar" id="botao-desligar">Desligar</button>
-            </form>
+            <button onclick="ligar()">Ligar</button>
+            <button onclick="desligar()">Desligar</button>
         </div>
 
     </div>
 
     <script>
         let click = 0
-        let imagem = document.getElementById("lampada")
+        let estado = 'apagada'
+        let imagem = document.getElementById("image")
 
-        let bLigar = document.getElementById("botao-ligar")
-        let bDesligar = document.getElementById('botao-desligar')
-        let bLampada = document.getElementById('botao-imagem')
-
-        bLigar.addEventListener("click", interruptor_ligar)
-        bDesligar.addEventListener("click", interruptor_desligar)
-        bLampada.addEventListener("click", quebrar)
-
-        tipo = "apagada"
-
-        function interruptor_ligar(){
-
-            if(tipo === "apagada"){
-                tipo = "acessa"
-                imagem.src = 'imgs/acessa.png'
-            }
-        }
-
-        function interruptor_desligar(){
-            if(tipo === "acessa"){
-                tipo = "apagada"
-                imagem.src = 'imgs/apagada.png'
-            }
-        }
-
-        function quebrar(){
-            
-            click++
-            if (click > 3){
+        function quebrar() {
+            click++;
+            if (click >= 3) {
                 imagem.src = 'imgs/quebrada.png'
-                tipo = 'quebrada'
-                document.getElementById('botoes').style.display = 'none'
+                estado = 'quebrada'
+                document.getElementById("botoes").style.display = "none"
+                document.getElementById('b').style.background = 'gray'
+                document.getElementById('corpo').style.background = 'rgba(255, 255, 255, 0.208)'
             }
         }
 
-
-        /*Eu estou sem palavras...........*/
-        
-        /* 
-        O que eu fiz anteriomente:
-        if (imagem.style.backgroundImage != "imgs/acessa.png" && imagem.style.backgroundImage != "img/quebrada.png")
-
-        O que eu fiz depois: 
-        if(!back.includes("imgs/apagada.png") && !back.includes("imgs/quebrada.png")){
-            imagem.style.backgroundImage = "url('imgs/apagada.png')"
-
-        e depois:
-        if(src === 'imgs/apagada.png'){
+        function ligar() {
+            if (estado === 'apagada') {
                 imagem.src = 'imgs/acessa.png'
-                alert(imagem.src)
+                estado = 'acessa'
+                document.getElementById('b').style.background = 'yellow'
+                document.getElementById('corpo').style.background = "rgba(0, 0, 0, 0.705)"
             }
+        }
 
-    */
+        function desligar() {
+            if (estado === 'acessa') {
+                imagem.src = 'imgs/apagada.png'
+                estado = 'apagada'
+                document.getElementById('b').style.background = 'gray'
+                document.getElementById('corpo').style.background = 'rgba(255, 255, 255, 0.208)'
+            }
+        }
     </script>
-
-    
     
 </body>
 </html>
