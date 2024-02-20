@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="corpo">
+        <div id="imagem">
+            <img id="semaforo" src="https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/desligado.png?raw=true" alt="image">
+        </div>
+        <div id="botoes">
+            <button id="vermelho" >Vermelho</button>
+            <button id="amarelo" >Amarelo</button>
+            <br>
+            <button id="verde">Verde</button>
+            <button id="auto">Automático</button>
+        </div>
+    </div>
+
+    <div id="foot">
+        <p>Projeto executado por Giovanna Scalfoni e pertencente a <a href="https://www.youtube.com/@FernandoLeonid" target="_blank">Fernando Leonid</a></p>
+    </div>
+
+    <script>
+        let semaforo = document.getElementById('semaforo')
+        let botoes = document.getElementById('botoes')
+        let cor_index = 0
+        let intervalo
+
+        const mudanca = () => {
+            const cores = ['verde', 'amarelo', 'vermelho']
+            let cor = cores[cor_index]
+            dic[cor]()
+            cor_index++
+
+            if(cor_index > 2){
+                cor_index = 0
+            }
+        }
+
+        const dic = {
+            'vermelho' : () => semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/vermelho.png?raw=true',
+            'amarelo' : () => semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/amarelo.png?raw=true',
+            'verde' : () =>  semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/verde.png?raw=true',
+            'auto' : () => intervalo = setInterval(mudanca, 800)
+        }
+
+        
+        const trafego = (event) => {
+            let tipo = event.target.id
+            clearInterval(intervalo)
+            dic[tipo]()
+        }
+        
+
+        botoes.addEventListener('click', trafego)
+        
+
+        //O jeito abaixo funciona, mas o de cima é bem mais legal
+        // function vermelho(){
+        //     semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/vermelho.png?raw=true'
+        // }
+
+        // function amarelo(){
+        //     semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/amarelo.png?raw=true'
+        // }
+
+        // function verde(){
+        //     semaforo.src = 'https://github.com/fernandoleonid/mini-projetos-js/blob/master/02-semaforo/img/verde.png?raw=true'
+        // }
+
+        // function auto(){
+
+        // }
+
+    </script>
+
+
+    
+</body>
+</html>
