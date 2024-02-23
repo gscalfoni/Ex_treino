@@ -74,3 +74,18 @@ input{
     font-size: 1.4em;
     font-weight: bold;
 }
+
+.item_item{
+    background-color: white;
+    width: 400px;
+    height: 70px;
+    border: none;
+    text-align: center;
+    color: black;
+    font-size: 1.6em;
+}
+
+button{
+    position: fixed;
+    right: 0;
+}

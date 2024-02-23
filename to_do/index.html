@@ -12,16 +12,26 @@
     <main>
         <h1>TO-DO LIST</h1>
 
-        <div id="list">
+        <div class="item_list" id="list">
 
         </div>
+
         <div id="escrever">
             <label for="text"><input type="text" name="elemento" id="elemento" placeholder="Digite e precione para adicionar"></label>
         </div>
     </main>
 
     <script>
-        let tarefa = document.getElementById('elemento').value
+        const criarItem = (frase) =>{
+            const item = document.createElement('label')
+            item.classList.add('item_item')
+            item.innerHTML = `
+            <input type="checkbox" name="i" id="i"> <div>${frase}</div>
+            <button>X</button>`
+
+            document.getElementById('list').appendChild(item)
+
+        }
 
 
     </script>
