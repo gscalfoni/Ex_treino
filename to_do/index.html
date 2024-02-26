@@ -22,6 +22,11 @@
     </main>
 
     <script>
+
+        let banco = [
+            {'tarefa':'teste1'},
+            {'tarefa' : 'teste2'}
+        ]
         const criarItem = (frase) =>{
             const item = document.createElement('label')
             item.classList.add('item_item')
@@ -32,6 +37,33 @@
             document.getElementById('list').appendChild(item)
 
         }
+
+        const limpar = () =>{
+            let todolist = document.getElementById('list')
+            while(todolist.firstChild){
+                todolist.removeChild(todolist.lastChild)
+            }
+
+        }
+
+        const atualizar = () =>{
+            limpar()
+            banco.forEach (item => criarItem(item.tarefa))
+        }
+
+
+        const inserirItem = (evento) =>{
+            let tecla = evento.key
+            if(tecla === 'Enter'){
+                banco.push({'tarefa': evento.target.value})
+                atualizar()
+                evento.target.value = ''
+            }
+        }
+
+        document.getElementById('elemento').addEventListener('keypress', inserirItem)
+
+        atualizar()
 
 
     </script>
