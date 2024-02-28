@@ -129,3 +129,7 @@ div.item_list label input div{
     color: white;
     font-family: Arial, sans-serif;
 }
+
+div.item_list label input:checked + div {
+    text-decoration: line-through;
+}
